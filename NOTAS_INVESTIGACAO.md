@@ -1,7 +1,7 @@
 # Investigação: DF Imóveis
 
 ## Resumo
-Os dados vêm diretamente no HTML, não é necessário usar navegador e cada anúncio possui um ID próprio.
+Os dados vêm diretamente no HTML e também em um bloco JSON, não é necessário usar navegador e cada anúncio possui um ID próprio.
 
 ## Como montar a url de busca
 
@@ -50,7 +50,7 @@ Vêm 30 anúncios por página e o total aparece no filtro lateral "Tipos"
 | Nome | `itemprop="name"` | SQS 213, ASA SUL, BRASILIA |
 | Link | `itemprop="url"` | href="/imovel/apartamento-2-quartos-venda-asa-sul-brasilia-df-sqs-204-1421073" |
 | Características | `div`s com a classe `rounded-pill`, sem etiqueta | `136 m²`, `3 Quartos`, `1 Suíte`, `1 Vaga` |
-| Anúncio | `article itemtype="https://schema.org/RealEstateListing"` | Umb bloco por anúncio, 30 por página
+| Anúncio | `article itemtype="https://schema.org/RealEstateListing"` | Um bloco por anúncio, 30 por página |
 
 ## Pegadinhas
 
@@ -92,3 +92,26 @@ Sitemap: https://www.dfimoveis.com.br/sitemap_index.xml
 ## Dúvidas em aberto
 
 - O que fazer caso o anúncio esteja como vendido?
+
+## Dados em JSON (JSON-LD)
+
+- Onde fica
+
+  - Dentro de um `<script type="application/ld+json">`
+
+  - Existem dois ld+json, o certo é o que possui `"@type":"ItemList"`
+
+- O que é schema.org
+  - Consiste em um projeto comunitário que serve para padronizar a forma como sites descrevem o próprio conteúdo para outros programas, principalmente para buscadores
+
+- O que tem
+  - `identifier`
+  - `price`
+  - `url`
+  - `address`
+  - `numberOfBedrooms`
+  - `floorSize`
+  - `datePosted`
+
+- Conclusão
+  - Após analisar os dados presentes dentro do JSON foi decidido que ele seria usado para localizar as informações desejadas dos anúncios, porque ele já traz ID, preço sem pontos, link completo
