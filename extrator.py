@@ -1,11 +1,15 @@
-import config
+import json
+
 from bs4 import BeautifulSoup
+
+import config
 
 with open(config.CAMINHO_DADOS, "r", encoding="utf-8") as f:
     html = f.read()
 
 soup = BeautifulSoup(html, "html.parser")
 
-anuncios = soup.find_all("article",attrs={"itemtype": "https://schema.org/RealEstateListing"})
+blocos_json = soup.find_all("script", attrs={"type": "application/ld+json"})
 
-print(len(anuncios))
+dados = json.loads(blocos_json[1].string)
+print(len(dados["itemListElement"]))
