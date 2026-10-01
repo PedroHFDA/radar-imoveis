@@ -23,7 +23,7 @@ Query String:
 
 - valorinicial=1500000
 
-- valorfinal=2000000
+- valorfinal=1990000
 
 Vêm 30 anúncios por página e o total aparece no filtro lateral "Tipos"
 
