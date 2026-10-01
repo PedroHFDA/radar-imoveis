@@ -1,0 +1,2 @@
+PRECO_MAXIMO = 1990000
+CAMINHO_DADOS = "dados/pagina1.html"
