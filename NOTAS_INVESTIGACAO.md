@@ -46,10 +46,11 @@ Vêm 30 anúncios por página e o total aparece no filtro lateral "Tipos"
 | Preço | `itemprop="price"`, atributo content | " 1.500.000" |
 | Id | `data-id` e no final do link | data-id="1377780" |
 | Descrição | `itemprop="description"` | SQS 207  Reformado  Andar Alto  Nascente |
-| Valor m² | Valor m² R$ `class="body-large bold"` | 12.292
+| Valor m² | Valor m² R$ `class="body-large bold"` | 12.292 |
 | Nome | `itemprop="name"` | SQS 213, ASA SUL, BRASILIA |
 | Link | `itemprop="url"` | href="/imovel/apartamento-2-quartos-venda-asa-sul-brasilia-df-sqs-204-1421073" |
 | Características | `div`s com a classe `rounded-pill`, sem etiqueta | `136 m²`, `3 Quartos`, `1 Suíte`, `1 Vaga` |
+| Anúncio | `article itemtype="https://schema.org/RealEstateListing"` | Umb bloco por anúncio, 30 por página
 
 ## Pegadinhas
 
