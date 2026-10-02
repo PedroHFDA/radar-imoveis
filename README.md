@@ -5,7 +5,7 @@ Ferramenta de análise e acompanhamento de valores e status de anúncios de imó
 ## Status
 
 - Em desenvolvimento:
-  - Primeiro coletor
+  - Banco de dados (SQLite)
 
 - Concluído: 
   - Investigação do primeiro portal
