@@ -11,10 +11,12 @@ soup = BeautifulSoup(html, "html.parser")
 
 blocos_json = soup.find_all("script", attrs={"type": "application/ld+json"})
 
-
 for bloco in blocos_json:
     if "ItemList" in bloco.string:
         dados = json.loads(bloco.string)
         break
 
-print(len(dados["itemListElement"]))
+for anuncio in dados["itemListElement"]:
+    imovel = anuncio["item"]
+    valor_imovel = int(imovel["offers"]["price"])
+    print(f"ID: {imovel['identifier']} | Valor: {valor_imovel}")
