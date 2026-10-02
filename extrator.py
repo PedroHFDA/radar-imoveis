@@ -11,5 +11,10 @@ soup = BeautifulSoup(html, "html.parser")
 
 blocos_json = soup.find_all("script", attrs={"type": "application/ld+json"})
 
-dados = json.loads(blocos_json[1].string)
+
+for bloco in blocos_json:
+    if "ItemList" in bloco.string:
+        dados = json.loads(bloco.string)
+        break
+
 print(len(dados["itemListElement"]))
