@@ -38,6 +38,8 @@ Vêm 30 anúncios por página e o total aparece no filtro lateral "Tipos"
 
 - Pausa de alguns segundos entre um pedido e outro
 
+- A página logo depois da última responde 200 sem anúncios, e o 404 só aparece bem mais longe
+
 
 ## Onde estão os dados na página
 
