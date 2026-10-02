@@ -40,6 +40,8 @@ Vêm 30 anúncios por página e o total aparece no filtro lateral "Tipos"
 
 - A página logo depois da última responde 200 sem anúncios, e o 404 só aparece bem mais longe
 
+- Por conta do tempo de espera do código, as vezes o mesmo anúncio pode aparecer mais de uma vez
+
 
 ## Onde estão os dados na página
 
