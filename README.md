@@ -16,7 +16,7 @@ Ferramenta de análise e acompanhamento de valores e status de anúncios de imó
 - [x] Investigar o site e descobrir onde estão os dados: [Investigação](NOTAS_INVESTIGACAO.md)
 - [x] Primeiro programa: baixar uma página de um portal e extrair os anúncios
 - [x] Percorrer todas as páginas e limpar os dados (preço como número, etc.)
-- [ ] Guardar tudo num banco (SQLite) e comparar com a execução anterior: o que é novo, o que sumiu, o que mudou de preço
+- [x] Guardar tudo num banco (SQLite) e comparar com a execução anterior: o que é novo, o que sumiu, o que mudou de preço
 - [ ] Mandar um aviso com o resumo (e-mail ou Telegram)
 - [ ] Rodar sozinho duas vezes por dia, pelo Agendador de Tarefas do Windows
 - [ ] Adicionar outros portais e juntar anúncios repetidos
