@@ -18,5 +18,9 @@ for bloco in blocos_json:
 
 for anuncio in dados["itemListElement"]:
     imovel = anuncio["item"]
+    id = imovel["identifier"]
     valor_imovel = int(imovel["offers"]["price"])
-    print(f"ID: {imovel['identifier']} | Valor: {valor_imovel}")
+    endereco = imovel["address"]["streetAddress"]
+    link = imovel["offers"]["url"]
+
+    print(f"ID: {id} |Valor: {valor_imovel} |Endereço: {endereco} |Link: {link}")
