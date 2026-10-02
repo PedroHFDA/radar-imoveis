@@ -9,10 +9,14 @@ def extrai_anuncios(html):
     soup = BeautifulSoup(html, "html.parser")
 
     blocos_json = soup.find_all("script", attrs={"type": "application/ld+json"})
+    dados = None
     for bloco in blocos_json:
         if "ItemList" in bloco.string:
             dados = json.loads(bloco.string)
             break
+
+    if dados is None:
+        return []
 
     anuncios = []
     for oferta in dados["itemListElement"]:

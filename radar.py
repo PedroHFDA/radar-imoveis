@@ -11,6 +11,8 @@ for pagina in range(1, config.LIMITE_DE_PAGINAS + 1):
     if resposta.status_code == 404:
         break
     anuncios_da_pagina = extrator.extrai_anuncios(resposta.text)
+    if not anuncios_da_pagina:
+        break
     todos_os_anuncios.extend(anuncios_da_pagina)
     print(f"Página {pagina}: {len(anuncios_da_pagina)} anúncios")
     time.sleep(config.TEMPO_DE_PAUSA)
