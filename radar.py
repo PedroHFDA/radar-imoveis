@@ -15,4 +15,4 @@ for pagina in range(1, config.LIMITE_DE_PAGINAS + 1):
     print(f"Página {pagina}: {len(anuncios_da_pagina)} anúncios")
     time.sleep(config.TEMPO_DE_PAUSA)
 
-print(len(todos_os_anuncios))
+print(f"Total de anúncios: {len(todos_os_anuncios)}")
