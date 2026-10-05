@@ -3,3 +3,4 @@ PRECO_MAXIMO = 2000000
 CAMINHO_DADOS = "dados/pagina1.html"
 LIMITE_DE_PAGINAS = 30
 TEMPO_DE_PAUSA = 5
+CAMINHO_BANCO = "dados/anuncios.db"
