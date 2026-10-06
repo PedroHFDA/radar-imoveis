@@ -16,9 +16,59 @@ def criar_tabelas(cur):
     """)
 
 
+def salvar_anuncio(cur, anuncio, agora):
+
+    cur.execute(
+        """
+            SELECT id, preco FROM anuncios WHERE id = ?
+        """,
+        (anuncio["id"],),
+    )
+
+    existente = cur.fetchone()
+
+    if existente is None:
+        valores = (
+            anuncio["id"],
+            anuncio["preco"],
+            anuncio["endereco"],
+            anuncio["link"],
+            agora,
+            agora,
+        )
+        valores_historico = (anuncio["id"], anuncio["preco"], agora)
+
+        cur.execute(
+            """
+            INSERT INTO anuncios
+            (id, preco, endereco, link, primeira_vez_visto, ultima_vez_visto)
+            VALUES
+            (?, ?, ?, ?, ?, ?)
+        """,
+            valores,
+        )
+
+        cur.execute(
+            """
+            INSERT INTO historico_precos
+            (id_anuncio, preco, data)
+            VALUES
+            (?, ?, ?)
+        """,
+            valores_historico,
+        )
+
+
 if __name__ == "__main__":
     con = sqlite3.connect(config.CAMINHO_BANCO)
     cur = con.cursor()
     criar_tabelas(cur)
-    res = cur.execute("SELECT name FROM sqlite_master")
-    res.fetchone()
+    dicionario_exemplo = {
+        "id": "13121972",
+        "preco": 1750000,
+        "endereco": "SQS 213, Bloco F",
+        "link": "link Exemplo",
+    }
+    data_exemplo = "2026-10-06 16:44:27"
+    salvar_anuncio(cur, dicionario_exemplo, data_exemplo)
+    con.commit()
