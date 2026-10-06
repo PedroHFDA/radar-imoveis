@@ -86,6 +86,16 @@ def salvar_anuncio(cur, anuncio, agora):
             ),
         )
 
+    else:
+        cur.execute(
+            """
+            UPDATE anuncios
+            SET ultima_vez_visto = ?
+            WHERE id = ?
+        """,
+            (agora, anuncio["id"]),
+        )
+
 
 if __name__ == "__main__":
     con = sqlite3.connect(config.CAMINHO_BANCO)
@@ -97,6 +107,6 @@ if __name__ == "__main__":
         "endereco": "SQS 213, Bloco F",
         "link": "link Exemplo",
     }
-    data_exemplo = "2026-10-06 16:44:27"
+    data_exemplo = "2026-10-06 18:08:27"
     salvar_anuncio(cur, dicionario_exemplo, data_exemplo)
     con.commit()
