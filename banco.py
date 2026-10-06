@@ -58,6 +58,34 @@ def salvar_anuncio(cur, anuncio, agora):
             valores_historico,
         )
 
+    elif existente[1] != anuncio["preco"]:
+        cur.execute(
+            """
+            UPDATE anuncios
+            SET preco = ?, ultima_vez_visto = ?
+            WHERE id = ?
+        """,
+            (
+                anuncio["preco"],
+                agora,
+                anuncio["id"],
+            ),
+        )
+
+        cur.execute(
+            """
+            INSERT INTO historico_precos
+            (id_anuncio, preco, data)
+            VALUES
+            (?, ?, ?)
+        """,
+            (
+                anuncio["id"],
+                anuncio["preco"],
+                agora,
+            ),
+        )
+
 
 if __name__ == "__main__":
     con = sqlite3.connect(config.CAMINHO_BANCO)
@@ -65,7 +93,7 @@ if __name__ == "__main__":
     criar_tabelas(cur)
     dicionario_exemplo = {
         "id": "13121972",
-        "preco": 1750000,
+        "preco": 1650000,
         "endereco": "SQS 213, Bloco F",
         "link": "link Exemplo",
     }
