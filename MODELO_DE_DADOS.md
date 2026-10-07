@@ -2,9 +2,9 @@
 
 ## Tabela anuncios
 
-| id | endereco | link | preco | primeira_vez_visto | ultima_vez_visto |
-|----|----------|------|-------|--------------------|------------------|
-| Identificador de cada anúncio | Endereço | Link | Preço atual | Primeiro registro do apartamento | Última data registrada |
+| id | preco | metragem | endereco | link | primeira_vez_visto | ultima_vez_visto |
+|----|-------|----------|----------|------|--------------------|------------------|
+| Identificador de cada anúncio | Preço do anúncio | Metragem do imóvel | Endereço | Link | Primeira data de registro daquele anúncio | Última data de registro do anúncio |
 
 
 
