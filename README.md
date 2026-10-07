@@ -18,7 +18,7 @@ Ferramenta de análise e acompanhamento de valores e status de anúncios de imó
 - [x] Percorrer todas as páginas e limpar os dados (preço como número, etc.)
 - [x] Guardar tudo num banco (SQLite) e comparar com a execução anterior: o que é novo, o que sumiu, o que mudou de preço
 - [ ] Mandar um aviso com o resumo (e-mail ou Telegram)
-- [ ] Rodar sozinho duas vezes por dia, pelo Agendador de Tarefas do Windows
+- [ ] Executor para rodar com dois cliques
 - [ ] Adicionar outros portais e juntar anúncios repetidos
 - [ ] Acabamento para portfólio: README completo, organização e testes
 
