@@ -59,6 +59,8 @@ def salvar_anuncio(cur, anuncio, agora):
             valores_historico,
         )
 
+        return "novo"
+
     elif existente[1] != anuncio["preco"]:
         cur.execute(
             """
@@ -87,6 +89,8 @@ def salvar_anuncio(cur, anuncio, agora):
             ),
         )
 
+        return "mudou"
+
     else:
         cur.execute(
             """
@@ -96,6 +100,8 @@ def salvar_anuncio(cur, anuncio, agora):
         """,
             (agora, anuncio["id"]),
         )
+
+        return "igual"
 
 
 if __name__ == "__main__":

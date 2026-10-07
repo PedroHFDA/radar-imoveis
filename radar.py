@@ -31,8 +31,24 @@ for anuncio in todos_os_anuncios:
 con = sqlite3.connect(config.CAMINHO_BANCO)
 cur = con.cursor()
 banco.criar_tabelas(cur)
+
+novos = []
+mudaram = []
+iguais = []
+
 for anuncio in todos_os_anuncios:
-    banco.salvar_anuncio(cur, anuncio, agora)
+    situacao = banco.salvar_anuncio(cur, anuncio, agora)
+    if situacao == "novo":
+        novos.append(anuncio)
+    elif situacao == "mudou":
+        mudaram.append(anuncio)
+    else:
+        iguais.append(anuncio)
+
+print(f"Novos: {len(novos)}")
+print(f"Mudaram de preço: {len(mudaram)}")
+print(f"Iguais: {len(iguais)}")
+
 con.commit()
 
 print(f"IDs únicos: {len(ids_unicos)}")
