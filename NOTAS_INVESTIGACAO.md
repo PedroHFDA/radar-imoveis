@@ -5,7 +5,7 @@ Os dados vêm diretamente no HTML e também em um bloco JSON, não é necessári
 
 ## Como montar a url de busca
 
-https://www.dfimoveis.com.br/venda/df/brasilia/sudoeste/apartamento
+https://www.dfimoveis.com.br/venda/df/brasilia/asa-sul/apartamento
 
 Domínio: 
 https://www.dfimoveis.com.br
@@ -21,9 +21,16 @@ Query String:
 
 - pagina=2
 
-- valorinicial=1500000
+- valorinicial=1500000 : Preço mínimo
 
-- valorfinal=1990000
+- valorfinal=1990000 : Preço máximo
+
+- vagasdegaragem=1,2 : Filtra apartamentos que tenham 1 ou 2 vagas de garagem diretamente na url
+
+Decisão sobre a vaga: anúncios sem a vaga informada também ficam de fora
+da busca. Aceitamos essa perda porque, na Asa Sul, a vaga muda muito o
+preço (cerca de R$ 5 mil a menos por m² sem vaga), então é improvável que
+um corretor deixe de informar.
 
 Vêm 30 anúncios por página e o total aparece no filtro lateral "Tipos"
 
@@ -69,8 +76,6 @@ Vêm 30 anúncios por página e o total aparece no filtro lateral "Tipos"
 - As características não têm etiqueta e às vezes falta alguma
 
 - Aparecem anúncios "Vendido"
-
-- O site não filtra por quadra, então esse filtro fica no código
 
 - há acentos codificados, como `&#178;` e `&#243;`
 
