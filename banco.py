@@ -129,6 +129,17 @@ def buscar_sumidos(cur, ultima_execucao):
     return sumidos
 
 
+def buscar_anuncios(cur):
+    cur.execute(
+        """
+        SELECT id, endereco, metragem, preco, primeira_vez_visto, ultima_vez_visto, link
+        FROM anuncios
+    """
+    )
+    anuncios = cur.fetchall()
+    return anuncios
+
+
 if __name__ == "__main__":
     con = sqlite3.connect(config.CAMINHO_BANCO)
     cur = con.cursor()

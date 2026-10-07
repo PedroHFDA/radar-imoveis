@@ -6,6 +6,7 @@ import banco
 import coletor
 import config
 import extrator
+import planilha
 
 todos_os_anuncios = []
 
@@ -52,5 +53,8 @@ print(f"Iguais: {len(iguais)}")
 print(f"Sumiram: {len(sumiram)}")
 
 con.commit()
+
+lista_de_anuncios = banco.buscar_anuncios(cur)
+planilha.gerar_planilha(lista_de_anuncios)
 
 print(f"Total de anúncios: {len(todos_os_anuncios)}")
