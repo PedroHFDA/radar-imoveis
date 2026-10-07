@@ -104,6 +104,31 @@ def salvar_anuncio(cur, anuncio, agora):
         return "igual"
 
 
+def buscar_ultima_execucao(cur):
+    cur.execute(
+        """
+        SELECT MAX(ultima_vez_visto) FROM anuncios
+    """
+    )
+    resultado = cur.fetchone()
+    return resultado[0]
+
+
+def buscar_sumidos(cur, ultima_execucao):
+    if ultima_execucao is None:
+        return []
+
+    cur.execute(
+        """
+        SELECT id, endereco, preco, metragem, link
+        FROM anuncios WHERE ultima_vez_visto = ?
+    """,
+        (ultima_execucao,),
+    )
+    sumidos = cur.fetchall()
+    return sumidos
+
+
 if __name__ == "__main__":
     con = sqlite3.connect(config.CAMINHO_BANCO)
     cur = con.cursor()

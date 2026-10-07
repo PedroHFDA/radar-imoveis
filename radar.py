@@ -24,10 +24,6 @@ for pagina in range(1, config.LIMITE_DE_PAGINAS + 1):
     print(f"Página {pagina}: {len(anuncios_da_pagina)} anúncios")
     time.sleep(config.TEMPO_DE_PAUSA)
 
-ids_unicos = set()
-for anuncio in todos_os_anuncios:
-    ids_unicos.add(anuncio["id"])
-
 con = sqlite3.connect(config.CAMINHO_BANCO)
 cur = con.cursor()
 banco.criar_tabelas(cur)
@@ -35,6 +31,8 @@ banco.criar_tabelas(cur)
 novos = []
 mudaram = []
 iguais = []
+
+ultima_execucao = banco.buscar_ultima_execucao(cur)
 
 for anuncio in todos_os_anuncios:
     situacao = banco.salvar_anuncio(cur, anuncio, agora)
@@ -45,12 +43,14 @@ for anuncio in todos_os_anuncios:
     else:
         iguais.append(anuncio)
 
+sumiram = banco.buscar_sumidos(cur, ultima_execucao)
+
+print(f"Última execução: {ultima_execucao}")
 print(f"Novos: {len(novos)}")
 print(f"Mudaram de preço: {len(mudaram)}")
 print(f"Iguais: {len(iguais)}")
+print(f"Sumiram: {len(sumiram)}")
 
 con.commit()
-
-print(f"IDs únicos: {len(ids_unicos)}")
 
 print(f"Total de anúncios: {len(todos_os_anuncios)}")
