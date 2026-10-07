@@ -25,11 +25,13 @@ def extrai_anuncios(html):
         valor_imovel = int(imovel["offers"]["price"])
         endereco = imovel["address"]["streetAddress"]
         link = imovel["offers"]["url"]
+        metragem = imovel["floorSize"]["value"]
         anuncio = {
             "id": id_oferta,
             "preco": valor_imovel,
             "endereco": endereco,
             "link": link,
+            "metragem": metragem,
         }
         anuncios.append(anuncio)
 

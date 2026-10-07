@@ -6,7 +6,7 @@ import config
 def criar_tabelas(cur):
     cur.execute("""
         CREATE TABLE IF NOT EXISTS anuncios
-        (id TEXT PRIMARY KEY, preco INTEGER, endereco TEXT, link TEXT, 
+        (id TEXT PRIMARY KEY, preco INTEGER, metragem REAL, endereco TEXT, link TEXT, 
         primeira_vez_visto TEXT, ultima_vez_visto TEXT)
         """)
 
@@ -32,6 +32,7 @@ def salvar_anuncio(cur, anuncio, agora):
             anuncio["id"],
             anuncio["preco"],
             anuncio["endereco"],
+            anuncio["metragem"],
             anuncio["link"],
             agora,
             agora,
@@ -41,9 +42,9 @@ def salvar_anuncio(cur, anuncio, agora):
         cur.execute(
             """
             INSERT INTO anuncios
-            (id, preco, endereco, link, primeira_vez_visto, ultima_vez_visto)
+            (id, preco, endereco, metragem, link, primeira_vez_visto, ultima_vez_visto)
             VALUES
-            (?, ?, ?, ?, ?, ?)
+            (?, ?, ?, ?, ?, ?, ?)
         """,
             valores,
         )
@@ -104,6 +105,7 @@ if __name__ == "__main__":
     dicionario_exemplo = {
         "id": "13121972",
         "preco": 1650000,
+        "metragem": 120.0,
         "endereco": "SQS 213, Bloco F",
         "link": "link Exemplo",
     }
