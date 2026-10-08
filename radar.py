@@ -48,14 +48,21 @@ sumiram = banco.buscar_sumidos(cur, ultima_execucao)
 
 print(f"Última execução: {ultima_execucao}")
 print(f"Novos: {len(novos)}")
+for anuncio in novos:
+    print(f"{anuncio['endereco']} | {anuncio['metragem']} m²: R$ {anuncio['preco']}")
+    print(anuncio["link"])
 print(f"Mudaram de preço: {len(mudaram)}")
 for anuncio in mudaram:
     print(
-        f"{anuncio['endereco']}: R$ {anuncio['preco_antigo']} -> R$ {anuncio['preco']}"
+        f"{anuncio['endereco']} | {anuncio['metragem']} m²: "
+        f"R$ {anuncio['preco_antigo']} -> R$ {anuncio['preco']}"
     )
     print(anuncio["link"])
 print(f"Iguais: {len(iguais)}")
 print(f"Sumiram: {len(sumiram)}")
+for anuncio in sumiram:
+    print(f"{anuncio[1]} | {anuncio[3]} m²: R$ {anuncio[2]}")
+    print(anuncio[4])
 
 con.commit()
 
