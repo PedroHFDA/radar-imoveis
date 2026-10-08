@@ -49,6 +49,11 @@ sumiram = banco.buscar_sumidos(cur, ultima_execucao)
 print(f"Última execução: {ultima_execucao}")
 print(f"Novos: {len(novos)}")
 print(f"Mudaram de preço: {len(mudaram)}")
+for anuncio in mudaram:
+    print(
+        f"{anuncio['endereco']}: R$ {anuncio['preco_antigo']} -> R$ {anuncio['preco']}"
+    )
+    print(anuncio["link"])
 print(f"Iguais: {len(iguais)}")
 print(f"Sumiram: {len(sumiram)}")
 

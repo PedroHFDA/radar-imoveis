@@ -89,6 +89,7 @@ def salvar_anuncio(cur, anuncio, agora):
             ),
         )
 
+        anuncio["preco_antigo"] = existente[1]
         return "mudou"
 
     else:
@@ -141,16 +142,18 @@ def buscar_anuncios(cur):
 
 
 if __name__ == "__main__":
-    con = sqlite3.connect(config.CAMINHO_BANCO)
+    con = sqlite3.connect(config.CAMINHO_BANCO_TESTE)
     cur = con.cursor()
     criar_tabelas(cur)
     dicionario_exemplo = {
         "id": "13121972",
-        "preco": 1650000,
+        "preco": 1640000,
         "metragem": 120.0,
         "endereco": "SQS 213, Bloco F",
         "link": "link Exemplo",
     }
     data_exemplo = "2026-10-06 18:08:27"
-    salvar_anuncio(cur, dicionario_exemplo, data_exemplo)
+    situacao = salvar_anuncio(cur, dicionario_exemplo, data_exemplo)
     con.commit()
+    print(situacao)
+    print(dicionario_exemplo)
