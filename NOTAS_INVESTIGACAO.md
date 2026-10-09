@@ -79,6 +79,8 @@ Vêm 30 anúncios por página e o total aparece no filtro lateral "Tipos"
 
 - há acentos codificados, como `&#178;` e `&#243;`
 
+- Alguns anúncios são excluídos e republicados
+
 ## Robots.txt
 
 ```
